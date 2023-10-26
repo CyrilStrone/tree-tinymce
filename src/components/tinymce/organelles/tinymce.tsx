@@ -2,14 +2,17 @@ import { Editor } from "@tinymce/tinymce-react";
 import "../styles/tinymce.css";
 
 export const Tinymce = () => {
+  const handleEditorChange = (content: any, editor: any) => {
+    console.log("Content was updated:", content);
+  };
   return (
     <div className="Tinymce">
       <Editor
         tinymceScriptSrc={"/tinymce/tinymce.min.js"}
+        onEditorChange={handleEditorChange}
         init={{
           mode: "textareas",
           language: "ru",
-          //@ts-ignore
           height: 500,
           menubar: false,
           plugins: [
@@ -41,28 +44,14 @@ export const Tinymce = () => {
             " toolbar: 'table tabledelete | tableprops tablerowprops tablecellprops | tableinsertrowbefore tableinsertrowafter tabledeleterow | tableinsertcolbefore tableinsertcolafter tabledeletecol'",
           content_style:
             "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
-          image_list: [
-            {
-              title: "My image 1",
-              value: "https://www.tiny.cloud/my1.gif",
-            },
-            {
-              title: "My image 2",
-              value: "http://www.moxiecode.com/my2.gif",
-            },
-          ],
           image_advtab: true,
           convert_urls: false,
-          // skin: "oxide-dark",
-          // content_css: "dark",
-
-          image_class_list: [
-            //настройка своих css классов для картинок
-            { title: "None", value: "img_border" },
-            { title: "Свой класс", value: "img_no_border" },
-          ],
         }}
       />
+      <div className="Tinymce__Button">
+        <div className="Tinymce__Button__Save">Save</div>
+        <div className="Tinymce__Button__Cancel">Cancel</div>
+      </div>
     </div>
   );
 };
