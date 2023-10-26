@@ -1,0 +1,38 @@
+.dnd-sortable-tree_simple_tree-item {
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.TreeItem__Title {
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+}
+.TreeItem__Change {
+  transition: all 0.5s;
+  cursor: pointer;
+  opacity: 0.3;
+  user-select: none;
+}
+.TreeItem__Change:hover {
+  opacity: 1;
+}
+.TreeItem__Drag {
+  transition: all 0.5s;
+  opacity: 0.3;
+  user-select: none;
+}
+.TreeItem__Drag:hover {
+  opacity: 1;
+}
+.TreeItem__Collapse {
+  transition: all 0.3s ease-out;
+  cursor: pointer;
+  user-select: none;
+}
+.dnd-sortable-tree_simple_ghost .dnd-sortable-tree_simple_tree-item {
+  background: #127dce6e !important;
+  color: var(--color-white) !important;
+}
